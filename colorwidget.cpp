@@ -14,6 +14,6 @@ void ColorWidget::changeBackgroundColor(const QColor &backgroundColor)
 
 void ColorWidget::paintEvent(QPaintEvent*)
 {
-    QPainter painter;
+    QPainter painter(this);
     painter.fillRect(0, 0, width(), height(), m_backgroundColor);
 }
