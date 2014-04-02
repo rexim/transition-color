@@ -10,7 +10,7 @@ class ColorVector
 public:
     using Tuple = std::tuple<qreal, qreal, qreal>;
 
-    ColorVector(qreal red, qreal green, qreal blue);
+    ColorVector(qreal red = 0, qreal green = 0, qreal blue = 0);
 
     Tuple asTuple() const;
     qreal length() const;
