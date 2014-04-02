@@ -1,3 +1,4 @@
 transition-color
 *.o
 moc_*
+Makefile
