@@ -14,7 +14,7 @@ public:
                    QObject *parent = 0);
 
 public slots:
-    void transitionTo(const QColor &color, int duration);
+    void transitionTo(const QColor &targetColor, int duration);
     void tick(int deltaTime);
 
 signals:
@@ -22,7 +22,7 @@ signals:
 
 private:
     QColor m_currentColor;
-    QColor m_finalColor;
+    QColor m_targetColor;
     int m_duration;
     int m_remainingTime;
 

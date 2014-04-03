@@ -4,18 +4,18 @@ ColorTransitor::ColorTransitor(const QColor &currentColor,
                                QObject *parent):
     QObject(parent),
     m_currentColor(currentColor),
-    m_finalColor(currentColor),
+    m_targetColor(currentColor),
     m_duration(0),
     m_remainingTime(0)
 {}
 
-void ColorTransitor::transitionTo(const QColor &color, int duration)
+void ColorTransitor::transitionTo(const QColor &targetColor, int duration)
 {
     m_duration      = duration;
     m_remainingTime = duration;
-    m_finalColor    = color;
-    m_unit          = (m_finalColor - m_currentColor).normalized();
-    m_length        = (m_finalColor - m_currentColor).length();
+    m_targetColor   = targetColor;
+    m_unit          = (m_targetColor - m_currentColor).normalized();
+    m_length        = (m_targetColor - m_currentColor).length();
 }
 
 void ColorTransitor::tick(int deltaTime)
