@@ -10,7 +10,7 @@ class ColorTransitor: public QObject
 {
     Q_OBJECT
 public:
-    ColorTransitor(const QColor &currentColor,
+    ColorTransitor(const QColor &currentColor = QColor(),
                    QObject *parent = 0);
 
 public slots:

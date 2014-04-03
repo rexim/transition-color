@@ -11,6 +11,8 @@ class ColorWidget: public QWidget
 public:
     ColorWidget(QWidget *parent = 0);
 
+    QColor getBackgroundColor() const;
+
 public slots:
     void changeBackgroundColor(const QColor &backgroundColor);
 

@@ -8,10 +8,14 @@ SOURCES += main.cpp \
            colorvector.cpp \
            colorwidget.cpp \
            colortransitor.cpp \
-           timerwithdeltatime.cpp
+           timerwithdeltatime.cpp \
+           mainwindow.cpp
 
 HEADERS += colorvector.hpp \
            mathutils.hpp \
            colorwidget.hpp \
            colortransitor.hpp \
-           timerwithdeltatime.hpp
+           timerwithdeltatime.hpp \
+           mainwindow.hpp
+
+FORMS += mainwindow.ui

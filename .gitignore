@@ -2,3 +2,5 @@ transition-color
 *.o
 moc_*
 Makefile
+*.moc
+ui_*
