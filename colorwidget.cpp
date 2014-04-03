@@ -12,6 +12,11 @@ void ColorWidget::changeBackgroundColor(const QColor &backgroundColor)
     repaint();
 }
 
+QColor ColorWidget::getBackgroundColor() const
+{
+    return m_backgroundColor;
+}
+
 void ColorWidget::paintEvent(QPaintEvent*)
 {
     QPainter painter(this);
