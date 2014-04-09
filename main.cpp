@@ -1,7 +1,7 @@
 #include <QApplication>
 
 #include "./timerwithdeltatime.hpp"
-#include "./colortransitor.hpp"
+#include "./transitioncolorengine.hpp"
 #include "./colorwidget.hpp"
 #include "./mainwindow.hpp"
 
@@ -10,20 +10,20 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
     TimerWithDeltaTime timer;
-    ColorTransitor colorTransitor;
+    TransitionColorEngine transitionColorEngine;
     MainWindow mainWindow;
 
     QObject::connect(&timer,
                      SIGNAL(timeout(int)),
-                     &colorTransitor,
+                     &transitionColorEngine,
                      SLOT(tick(int)));
-    QObject::connect(&colorTransitor,
+    QObject::connect(&transitionColorEngine,
                      SIGNAL(currentColorChanged(const QColor&)),
                      mainWindow.getMainColorWidget(),
                      SLOT(changeBackgroundColor(const QColor&)));
     QObject::connect(&mainWindow,
                      SIGNAL(transitionTargetConfirmed(const QColor&, int)),
-                     &colorTransitor,
+                     &transitionColorEngine,
                      SLOT(transitionTo(const QColor&, int)));
 
     timer.start(30);

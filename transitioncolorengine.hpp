@@ -1,17 +1,17 @@
-#ifndef COLORTRANSITOR_HPP_
-#define COLORTRANSITOR_HPP_
+#ifndef TRANSITIONCOLORENGINE_HPP_
+#define TRANSITIONCOLORENGINE_HPP_
 
 #include <QColor>
 #include <QObject>
 
 #include "./colorvector.hpp"
 
-class ColorTransitor: public QObject
+class TransitionColorEngine: public QObject
 {
     Q_OBJECT
 public:
-    ColorTransitor(const QColor &currentColor = QColor(),
-                   QObject *parent = 0);
+    TransitionColorEngine(const QColor &currentColor = QColor(),
+                          QObject *parent = 0);
 
 public slots:
     void transitionTo(const QColor &targetColor, int duration);
@@ -30,4 +30,4 @@ private:
     qreal m_length;
 };
 
-#endif  // COLORTRANSITOR_HPP_
+#endif  // TRANSITIONCOLORENGINE_HPP_

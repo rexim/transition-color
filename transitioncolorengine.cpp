@@ -1,7 +1,7 @@
-#include "./colortransitor.hpp"
+#include "./transitioncolorengine.hpp"
 
-ColorTransitor::ColorTransitor(const QColor &currentColor,
-                               QObject *parent):
+TransitionColorEngine::TransitionColorEngine(const QColor &currentColor,
+                                             QObject *parent):
     QObject(parent),
     m_currentColor(currentColor),
     m_targetColor(currentColor),
@@ -9,7 +9,7 @@ ColorTransitor::ColorTransitor(const QColor &currentColor,
     m_remainingTime(0)
 {}
 
-void ColorTransitor::transitionTo(const QColor &targetColor, int duration)
+void TransitionColorEngine::transitionTo(const QColor &targetColor, int duration)
 {
     m_duration      = duration;
     m_remainingTime = duration;
@@ -18,7 +18,7 @@ void ColorTransitor::transitionTo(const QColor &targetColor, int duration)
     m_length        = (m_targetColor - m_currentColor).length();
 }
 
-void ColorTransitor::tick(int deltaTime)
+void TransitionColorEngine::tick(int deltaTime)
 {
     if (m_remainingTime > 0) {
         m_remainingTime -= deltaTime;
