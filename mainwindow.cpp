@@ -16,16 +16,16 @@ MainWindow::~MainWindow()
 
 void MainWindow::targetColorChanged()
 {
-    ui->previewColorWidget->changeBackgroundColor(
-        QColor(ui->redSlider->value(),
-               ui->greenSlider->value(),
-               ui->blueSlider->value()));
+    QColor backgroundColor(ui->redSlider->value(),
+                           ui->greenSlider->value(),
+                           ui->blueSlider->value());
+    ui->previewColorWidget->changeBackgroundColor(backgroundColor);
 }
 
 void MainWindow::goButtonClicked()
 {
-    emit transitionTargetConfirmed(
-        ui->previewColorWidget->getBackgroundColor(), 1000);
+    QColor backgroundColor = ui->previewColorWidget->getBackgroundColor();
+    emit transitionTargetConfirmed(backgroundColor, 1000);
 }
 
 ColorWidget *MainWindow::getMainColorWidget() const
