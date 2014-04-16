@@ -27,7 +27,6 @@ private:
     int m_remainingTime;
 
     ColorVector m_unit;
-    qreal m_length;
 };
 
 #endif  // TRANSITIONCOLORENGINE_HPP_

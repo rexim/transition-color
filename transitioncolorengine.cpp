@@ -14,8 +14,7 @@ void TransitionColorEngine::transitionTo(const QColor &targetColor, int duration
     m_duration      = duration;
     m_remainingTime = duration;
     m_targetColor   = targetColor;
-    m_unit          = (m_targetColor - m_currentColor).normalized();
-    m_length        = (m_targetColor - m_currentColor).length();
+    m_unit          = (m_targetColor - m_currentColor);
 }
 
 void TransitionColorEngine::tick(int deltaTime)
@@ -24,7 +23,7 @@ void TransitionColorEngine::tick(int deltaTime)
         m_remainingTime -= deltaTime;
 
         qreal d = static_cast<qreal>(deltaTime) / m_duration;
-        m_currentColor += m_unit * (m_length * d);
+        m_currentColor += m_unit * d;
         emit currentColorChanged(m_currentColor);
     }
 }
